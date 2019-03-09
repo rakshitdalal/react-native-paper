@@ -2,12 +2,14 @@
 
 import color from 'color';
 import * as React from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, Dimensions } from 'react-native';
 import TouchableRipple from '../TouchableRipple';
 import Icon from '../Icon';
 import Text from '../Typography/Text';
 import { withTheme } from '../../core/theming';
 import type { Theme } from '../../types';
+
+const WINDOWSIZE = Dimensions.get("window").fontScale;
 
 type Props = {|
   /**
@@ -151,7 +153,6 @@ class ListAccordion extends React.Component<Props, State> {
               : null}
             <View style={[styles.item, styles.content]}>
               <Text
-                numberOfLines={1}
                 style={[
                   styles.title,
                   {
@@ -219,10 +220,10 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   title: {
-    fontSize: 16,
+    fontSize: 20/WINDOWSIZE,
   },
   description: {
-    fontSize: 14,
+    fontSize: 14/WINDOWSIZE,
   },
   item: {
     margin: 8,
